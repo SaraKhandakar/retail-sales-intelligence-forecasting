@@ -44,22 +44,21 @@ overview_tab, dashboard_tab, forecast_tab = st.tabs(['Overview', 'BI Dashboard',
 
 with overview_tab:
     st.subheader('Project Summary')
-st.write(
-    'This application supports retail decision-making by combining descriptive analytics with '
-    'monthly sales forecasting. It helps managers understand product, region, and discount performance '
-    'while also estimating future sales trends.'
-)
-
-st.write(
-    'This system enables data-driven decision-making by integrating data preprocessing, exploratory analysis, '
-    'machine learning, and interactive dashboarding in one end-to-end Business Intelligence solution.'
-)
+    st.write(
+        'This application supports retail decision-making by combining descriptive analytics with '
+        'monthly sales forecasting. It helps managers understand product, region, and discount performance '
+        'while also estimating future sales trends.'
+    )
+    st.write(
+        'This system enables data-driven decision-making by integrating data preprocessing, exploratory analysis, '
+        'machine learning, and interactive dashboarding in one end-to-end Business Intelligence solution.'
+    )
     st.markdown(
         f"""
         - **Dataset:** Superstore retail transactions ({summary['dataset_rows']:,} rows, {summary['date_start']} to {summary['date_end']})
         - **Top category:** {summary['top_category']} (${summary['top_category_sales']:,.0f})
         - **Top region:** {summary['top_region']} (${summary['top_region_sales']:,.0f})
-        - - **Correlation (Sales vs Profit):** {summary['sales_profit_correlation']:.3f}
+        - **Correlation (Sales vs Profit):** {summary['sales_profit_correlation']:.3f}
         - **Correlation (Discount vs Profit):** {summary['discount_profit_correlation']:.3f}
         - **Best forecast model:** {summary['best_model']} (RMSE: {summary['best_model_rmse']:,.0f}, R²: {summary['best_model_r2']:.4f})
         """
