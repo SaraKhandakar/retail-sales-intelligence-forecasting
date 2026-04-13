@@ -38,30 +38,36 @@ col1, col2, col3, col4 = st.columns(4)
 col1.metric('Total Sales', f"${filtered['Sales'].sum():,.0f}")
 col2.metric('Total Profit', f"${filtered['Profit'].sum():,.0f}")
 col3.metric('Average Order Value', f"${filtered['Sales'].mean():,.2f}")
-col4.metric('Best Forecast Model', summary['best_model'])
+col4.metric('Best Forecast Model (RMSE & R²)', summary['best_model'])
 
 overview_tab, dashboard_tab, forecast_tab = st.tabs(['Overview', 'BI Dashboard', 'Forecasting'])
 
 with overview_tab:
     st.subheader('Project Summary')
-    st.write(
-        'This application supports retail decision-making by combining descriptive analytics with '
-        'monthly sales forecasting. It helps managers understand product, region, and discount performance '
-        'while also estimating future sales trends.'
-    )
+st.write(
+    'This application supports retail decision-making by combining descriptive analytics with '
+    'monthly sales forecasting. It helps managers understand product, region, and discount performance '
+    'while also estimating future sales trends.'
+)
+
+st.write(
+    'This system enables data-driven decision-making by integrating data preprocessing, exploratory analysis, '
+    'machine learning, and interactive dashboarding in one end-to-end Business Intelligence solution.'
+)
     st.markdown(
         f"""
         - **Dataset:** Superstore retail transactions ({summary['dataset_rows']:,} rows, {summary['date_start']} to {summary['date_end']})
         - **Top category:** {summary['top_category']} (${summary['top_category_sales']:,.0f})
         - **Top region:** {summary['top_region']} (${summary['top_region_sales']:,.0f})
-        - **Correlation (Sales vs Profit):** {summary['sales_profit_correlation']}
-        - **Correlation (Discount vs Profit):** {summary['discount_profit_correlation']}
-        - **Best forecast model:** {summary['best_model']} (RMSE: {summary['best_model_rmse']:,.0f}, R²: {summary['best_model_r2']})
+        - - **Correlation (Sales vs Profit):** {summary['sales_profit_correlation']:.3f}
+        - **Correlation (Discount vs Profit):** {summary['discount_profit_correlation']:.3f}
+        - **Best forecast model:** {summary['best_model']} (RMSE: {summary['best_model_rmse']:,.0f}, R²: {summary['best_model_r2']:.4f})
         """
     )
     st.dataframe(performance, use_container_width=True, hide_index=True)
 
 with dashboard_tab:
+    st.subheader('Interactive Business Intelligence Dashboard')
     left, right = st.columns(2)
     cat_sales = filtered.groupby('Category', as_index=False)['Sales'].sum().sort_values('Sales', ascending=False)
     fig_cat = px.bar(cat_sales, x='Category', y='Sales', title='Sales by Category', text_auto='.2s')
@@ -89,6 +95,9 @@ with dashboard_tab:
 
 with forecast_tab:
     st.subheader('Monthly Sales Forecasting')
+    st.write(
+    'This section compares model performance, evaluates test predictions, and presents a 6-month sales forecast.'
+)
     test_pred = pd.read_csv(OUT_DIR / 'forecast_test_predictions.csv', parse_dates=['Date'])
     fig_eval = px.line(test_pred.melt(id_vars='Date', value_vars=['Actual Sales', 'Predicted Sales']),
                        x='Date', y='value', color='variable', markers=True,
