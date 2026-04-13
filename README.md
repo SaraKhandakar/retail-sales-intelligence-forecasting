@@ -1,8 +1,21 @@
-# Retail Sales Intelligence and Forecasting System using Python
+# 📊 Retail Sales Intelligence & Forecasting System
 
-This project is a complete Business Intelligence solution built on the Superstore dataset. It combines data cleaning, exploratory analysis, business insight generation, and monthly sales forecasting in one reproducible Python workflow.
+##  Live Demo
+https://retail-sales-intelligence-forecasting-jsyuupracbtsfqffmugm3w.streamlit.app/
 
-## Project Deliverables
+---
+
+##  Project Overview
+This project is an end-to-end Business Intelligence system built on the Superstore dataset. It combines data preprocessing, exploratory data analysis, business insight generation, machine learning-based forecasting, and an interactive Streamlit dashboard to support data-driven decision-making.
+
+---
+
+##  Problem Statement
+Retail businesses often struggle to understand sales patterns, optimize profitability, and accurately forecast future demand. This project addresses these challenges by providing actionable insights and predictive analytics to improve decision-making.
+
+---
+
+##  Project Deliverables
 - Data preparation and transformation pipeline
 - Exploratory charts and KPI summaries
 - Monthly sales forecasting model using Scikit-learn
@@ -10,48 +23,82 @@ This project is a complete Business Intelligence solution built on the Superstor
 - IEEE-style final report
 - Final PowerPoint presentation
 
-## Project Structure
-- `data/raw_superstore.csv` - original dataset
-- `data/cleaned_superstore_final.csv` - processed dataset
-- `src/build_project_assets.py` - reproducible data preparation, analysis, and forecasting script
-- `models/random_forest_monthly_sales.joblib` - trained forecasting model
-- `outputs/` - generated charts, tables, predictions, and summary files
-- `app.py` - Streamlit dashboard
-- `requirements.txt` - Python dependencies
+---
 
-## How to Run
+##  Project Structure
+- `data/raw_superstore.csv` - original dataset  
+- `data/cleaned_superstore_final.csv` - processed dataset  
+- `src/build_project_assets.py` - reproducible data preparation, analysis, and forecasting script  
+- `models/random_forest_monthly_sales.joblib` - trained forecasting model  
+- `outputs/` - generated charts, tables, predictions, and summary files  
+- `app.py` - Streamlit dashboard  
+- `requirements.txt` - Python dependencies  
+
+---
+
+##  Technologies Used
+- Python (Pandas, NumPy)
+- Data Visualization (Matplotlib, Seaborn, Plotly)
+- Machine Learning (Scikit-learn)
+- Streamlit (Interactive Dashboard)
+- GitHub (Version Control)
+
+---
+
+## ▶ How to Run Locally
 1. Install dependencies:
    ```bash
    pip install -r requirements.txt
-   ```
-2. Rebuild project assets:
-   ```bash
-   python src/build_project_assets.py
-   ```
-3. Launch the dashboard:
-   ```bash
-   streamlit run app.py
-   ```
+
+
+## Launch the dashboard:
+
+- streamlit run app.py
 
 ## Forecasting Approach
-The predictive component aggregates transaction data into monthly sales totals and engineers lag-based time-series features such as:
-- Lag 1, Lag 2, Lag 3, Lag 6, and Lag 12 months
-- 3-month and 6-month rolling averages
-- 3-month rolling standard deviation
-- year-over-year growth
-- time trend, month, quarter, and year
 
-Two models were tested:
-- Linear Regression
-- Random Forest Regressor
+- The predictive component aggregates transaction data into monthly sales totals and engineers time-series features such as:
 
-The Random Forest model performed best and was selected for the final system.
+- Lag features (1, 2, 3, 6, 12 months)
+- Rolling averages (3-month, 6-month)
+- Rolling standard deviation
+- Year-over-year growth
+- Time-based features (month, quarter, year)
 
-## Key Results
-- Top sales category: Technology
-- Top sales region: West
-- Discounts are negatively associated with profit
-- The best forecasting model achieved an RMSE of about 13.9K and R² of about 0.71 on the hold-out test set
+- Two models were tested:
 
-## Notes
-This project is designed to satisfy the Business Intelligence final project requirements for CST2213, including advanced Python, predictive analytics, visualization, documentation, and presentation.
+   - Linear Regression
+   - Random Forest Regressor
+
+- The Random Forest model performed best and was selected for the final system.
+
+## Key Results & Insights
+- Technology category generates the highest sales
+- West region shows the strongest performance
+- Discounts negatively impact profitability
+- High sales do not always guarantee high profit
+- The best forecasting model achieved:
+   - RMSE ≈ 13.9K
+   - R² ≈ 0.71
+
+
+## System Architecture
+
+- End-to-End BI Pipeline:
+
+   - Data Collection
+   - Data Cleaning & Preprocessing
+   - Exploratory Data Analysis (EDA)
+   - Feature Engineering
+   - Machine Learning Modeling
+   - Dashboard Development (Streamlit)
+   - Deployment
+
+## Conclusion
+
+- This project demonstrates a complete Business Intelligence pipeline from raw data to deployed application, integrating analytics and machine learning into a real-world decision support system.
+
+## Author
+
+- Shara Khandakar
+- CST2213 – Business Intelligence Programming
