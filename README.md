@@ -81,6 +81,14 @@ Retail businesses often struggle to understand sales patterns, optimize profitab
    - RMSE ≈ 13.9K
    - R² ≈ 0.71
 
+## Error Handling and Logging
+- This project includes error handling and logging to improve system reliability.
+
+- The Python logging module is used to record key steps such as data processing, model training, and forecasting. Errors are captured using try–except blocks and saved in log files (`logs/project.log` and `logs/app.log`).
+
+- This helps with debugging, monitoring, and makes the system more robust for real-world use.
+
+
 
 ## System Architecture
 
